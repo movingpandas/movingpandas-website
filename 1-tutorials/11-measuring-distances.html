@@ -7534,14 +7534,14 @@ The implemented distance measures are:</p>
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [1]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
 <span class="kn">import</span> <span class="nn">geopandas</span> <span class="k">as</span> <span class="nn">gpd</span>
 <span class="kn">import</span> <span class="nn">movingpandas</span> <span class="k">as</span> <span class="nn">mpd</span>
 <span class="kn">import</span> <span class="nn">shapely</span> <span class="k">as</span> <span class="nn">shp</span>
-<span class="kn">import</span> <span class="nn">hvplot.pandas</span> 
+<span class="kn">import</span> <span class="nn">hvplot.pandas</span>
 <span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 
 <span class="kn">from</span> <span class="nn">geopandas</span> <span class="kn">import</span> <span class="n">GeoDataFrame</span><span class="p">,</span> <span class="n">read_file</span>
@@ -7550,11 +7550,18 @@ The implemented distance measures are:</p>
 <span class="kn">from</span> <span class="nn">holoviews</span> <span class="kn">import</span> <span class="n">opts</span><span class="p">,</span> <span class="n">dim</span>
 
 <span class="kn">import</span> <span class="nn">warnings</span>
-<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s1">'ignore'</span><span class="p">)</span>
 
-<span class="n">plot_defaults</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'linewidth'</span><span class="p">:</span><span class="mi">5</span><span class="p">,</span> <span class="s1">'capstyle'</span><span class="p">:</span><span class="s1">'round'</span><span class="p">,</span> <span class="s1">'figsize'</span><span class="p">:(</span><span class="mi">9</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="s1">'legend'</span><span class="p">:</span><span class="kc">True</span><span class="p">}</span>
-<span class="n">opts</span><span class="o">.</span><span class="n">defaults</span><span class="p">(</span><span class="n">opts</span><span class="o">.</span><span class="n">Overlay</span><span class="p">(</span><span class="n">active_tools</span><span class="o">=</span><span class="p">[</span><span class="s1">'wheel_zoom'</span><span class="p">]))</span>
-<span class="n">hvplot_defaults</span> <span class="o">=</span> <span class="p">{</span><span class="s1">'tiles'</span><span class="p">:</span><span class="s1">'CartoLight'</span><span class="p">,</span> <span class="s1">'frame_height'</span><span class="p">:</span><span class="mi">320</span><span class="p">,</span> <span class="s1">'frame_width'</span><span class="p">:</span><span class="mi">320</span><span class="p">,</span> <span class="s1">'cmap'</span><span class="p">:</span><span class="s1">'Viridis'</span><span class="p">,</span> <span class="s1">'colorbar'</span><span class="p">:</span><span class="kc">True</span><span class="p">}</span>
+<span class="n">warnings</span><span class="o">.</span><span class="n">filterwarnings</span><span class="p">(</span><span class="s2">"ignore"</span><span class="p">)</span>
+
+<span class="n">plot_defaults</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"linewidth"</span><span class="p">:</span> <span class="mi">5</span><span class="p">,</span> <span class="s2">"capstyle"</span><span class="p">:</span> <span class="s2">"round"</span><span class="p">,</span> <span class="s2">"figsize"</span><span class="p">:</span> <span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="s2">"legend"</span><span class="p">:</span> <span class="kc">True</span><span class="p">}</span>
+<span class="n">opts</span><span class="o">.</span><span class="n">defaults</span><span class="p">(</span><span class="n">opts</span><span class="o">.</span><span class="n">Overlay</span><span class="p">(</span><span class="n">active_tools</span><span class="o">=</span><span class="p">[</span><span class="s2">"wheel_zoom"</span><span class="p">]))</span>
+<span class="n">hvplot_defaults</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">"tiles"</span><span class="p">:</span> <span class="s2">"CartoLight"</span><span class="p">,</span>
+    <span class="s2">"frame_height"</span><span class="p">:</span> <span class="mi">320</span><span class="p">,</span>
+    <span class="s2">"frame_width"</span><span class="p">:</span> <span class="mi">320</span><span class="p">,</span>
+    <span class="s2">"cmap"</span><span class="p">:</span> <span class="s2">"Viridis"</span><span class="p">,</span>
+    <span class="s2">"colorbar"</span><span class="p">:</span> <span class="kc">True</span><span class="p">,</span>
+<span class="p">}</span>
 
 <span class="n">mpd</span><span class="o">.</span><span class="n">show_versions</span><span class="p">()</span>
 </pre></div>
@@ -7568,22 +7575,42 @@ The implemented distance measures are:</p>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedJavaScript jp-OutputArea-output" data-mime-type="application/javascript" id="876d8d7a-8e6c-4494-9ae7-12917797faeb" tabindex="0">
+<div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
+<script type="esms-options">{"shimMode": true}</script><style>*[data-root-id],
+*[data-root-id] > * {
+  box-sizing: border-box;
+  font-family: var(--jp-ui-font-family);
+  font-size: var(--jp-ui-font-size1);
+  color: var(--vscode-editor-foreground, var(--jp-ui-font-color1));
+}
+
+/* Override VSCode background color */
+.cell-output-ipywidget-background:has(
+    > .cell-output-ipywidget-background > .lm-Widget > *[data-root-id]
+  ),
+.cell-output-ipywidget-background:has(> .lm-Widget > *[data-root-id]) {
+  background-color: transparent !important;
+}
+</style>
+</div>
+</div>
+<div class="jp-OutputArea-child">
+<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
+<div class="jp-RenderedJavaScript jp-OutputArea-output" data-mime-type="application/javascript" id="b92c6594-9349-4eec-ada6-e59ba8530cd5" tabindex="0">
 <script type="text/javascript">
-var element = document.getElementById('876d8d7a-8e6c-4494-9ae7-12917797faeb');
+var element = document.getElementById('b92c6594-9349-4eec-ada6-e59ba8530cd5');
 (function(root) {
   function now() {
     return new Date();
   }
 
-  var force = true;
+  const force = true;
+  const py_version = '3.5.2'.replace('rc', '-rc.').replace('.dev', '-dev.');
+  const reloading = false;
+  const Bokeh = root.Bokeh;
 
-  if (typeof root._bokeh_onload_callbacks === "undefined" || force === true) {
-    root._bokeh_onload_callbacks = [];
-    root._bokeh_is_loading = undefined;
-  }
-
-  if (typeof (root._bokeh_timeout) === "undefined" || force === true) {
+  // Set a timeout for this load but only if we are not already initializing
+  if (typeof (root._bokeh_timeout) === "undefined" || (force || !root._bokeh_is_initializing)) {
     root._bokeh_timeout = Date.now() + 5000;
     root._bokeh_failed_load = false;
   }
@@ -7595,26 +7622,28 @@ var element = document.getElementById('876d8d7a-8e6c-4494-9ae7-12917797faeb');
           callback();
       });
     } finally {
-      delete root._bokeh_onload_callbacks
+      delete root._bokeh_onload_callbacks;
     }
     console.debug("Bokeh: all callbacks have finished");
   }
 
-  function load_libs(css_urls, js_urls, js_modules, callback) {
+  function load_libs(css_urls, js_urls, js_modules, js_exports, callback) {
     if (css_urls == null) css_urls = [];
     if (js_urls == null) js_urls = [];
     if (js_modules == null) js_modules = [];
+    if (js_exports == null) js_exports = {};
 
     root._bokeh_onload_callbacks.push(callback);
+
     if (root._bokeh_is_loading > 0) {
+      // Don't load bokeh if it is still initializing
       console.debug("Bokeh: BokehJS is being loaded, scheduling callback at", now());
       return null;
-    }
-    if (js_urls.length === 0 && js_modules.length === 0) {
+    } else if (js_urls.length === 0 && js_modules.length === 0 && Object.keys(js_exports).length === 0) {
+      // There is nothing to load
       run_callbacks();
       return null;
     }
-    console.debug("Bokeh: BokehJS not loaded, scheduling load and callback at", now());
 
     function on_load() {
       root._bokeh_is_loading--;
@@ -7623,13 +7652,36 @@ var element = document.getElementById('876d8d7a-8e6c-4494-9ae7-12917797faeb');
         run_callbacks()
       }
     }
+    window._bokeh_on_load = on_load
 
-    function on_error() {
-      console.error("failed to load " + url);
+    function on_error(e) {
+      const src_el = e.srcElement
+      console.error("failed to load " + (src_el.href || src_el.src));
     }
 
-    for (var i = 0; i < css_urls.length; i++) {
-      var url = css_urls[i];
+    const skip = [];
+    if (window.requirejs) {
+      window.requirejs.config({'packages': {}, 'paths': {}, 'shim': {}});
+      root._bokeh_is_loading = css_urls.length + 0;
+    } else {
+      root._bokeh_is_loading = css_urls.length + js_urls.length + js_modules.length + Object.keys(js_exports).length;
+    }
+
+    const existing_stylesheets = []
+    const links = document.getElementsByTagName('link')
+    for (let i = 0; i < links.length; i++) {
+      const link = links[i]
+      if (link.href != null) {
+        existing_stylesheets.push(link.href)
+      }
+    }
+    for (let i = 0; i < css_urls.length; i++) {
+      const url = css_urls[i];
+      const escaped = encodeURI(url)
+      if (existing_stylesheets.indexOf(escaped) !== -1) {
+        on_load()
+        continue;
+      }
       const element = document.createElement("link");
       element.onload = on_load;
       element.onerror = on_error;
@@ -7638,40 +7690,24 @@ var element = document.getElementById('876d8d7a-8e6c-4494-9ae7-12917797faeb');
       element.href = url;
       console.debug("Bokeh: injecting link tag for BokehJS stylesheet: ", url);
       document.body.appendChild(element);
+    }    var existing_scripts = []
+    const scripts = document.getElementsByTagName('script')
+    for (let i = 0; i < scripts.length; i++) {
+      var script = scripts[i]
+      if (script.src != null) {
+        existing_scripts.push(script.src)
+      }
     }
-
-    var skip = [];
-    if (window.requirejs) {
-      window.requirejs.config({'packages': {}, 'paths': {'gridstack': 'https://cdn.jsdelivr.net/npm/gridstack@4.2.5/dist/gridstack-h5', 'notyf': 'https://cdn.jsdelivr.net/npm/notyf@3/notyf.min'}, 'shim': {'gridstack': {'exports': 'GridStack'}}});
-      require(["gridstack"], function(GridStack) {
-	window.GridStack = GridStack
-	on_load()
-      })
-      require(["notyf"], function() {
-	on_load()
-      })
-      root._bokeh_is_loading = css_urls.length + 2;
-    } else {
-      root._bokeh_is_loading = css_urls.length + js_urls.length + js_modules.length;
-    }    if (((window['GridStack'] !== undefined) && (!(window['GridStack'] instanceof HTMLElement))) || window.requirejs) {
-      var urls = ['https://cdn.holoviz.org/panel/0.14.4/dist/bundled/gridstack/gridstack@4.2.5/dist/gridstack-h5.js'];
-      for (var i = 0; i < urls.length; i++) {
-        skip.push(urls[i])
+    for (let i = 0; i < js_urls.length; i++) {
+      const url = js_urls[i];
+      const escaped = encodeURI(url)
+      if (skip.indexOf(escaped) !== -1 || existing_scripts.indexOf(escaped) !== -1) {
+        if (!window.requirejs) {
+          on_load();
+        }
+        continue;
       }
-    }    if (((window['Notyf'] !== undefined) && (!(window['Notyf'] instanceof HTMLElement))) || window.requirejs) {
-      var urls = ['https://cdn.holoviz.org/panel/0.14.4/dist/bundled/notificationarea/notyf@3/notyf.min.js'];
-      for (var i = 0; i < urls.length; i++) {
-        skip.push(urls[i])
-      }
-    }    for (var i = 0; i < js_urls.length; i++) {
-      var url = js_urls[i];
-      if (skip.indexOf(url) >= 0) {
-	if (!window.requirejs) {
-	  on_load();
-	}
-	continue;
-      }
-      var element = document.createElement('script');
+      const element = document.createElement('script');
       element.onload = on_load;
       element.onerror = on_error;
       element.async = false;
@@ -7679,13 +7715,14 @@ var element = document.getElementById('876d8d7a-8e6c-4494-9ae7-12917797faeb');
       console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
       document.head.appendChild(element);
     }
-    for (var i = 0; i < js_modules.length; i++) {
-      var url = js_modules[i];
-      if (skip.indexOf(url) >= 0) {
-	if (!window.requirejs) {
-	  on_load();
-	}
-	continue;
+    for (let i = 0; i < js_modules.length; i++) {
+      const url = js_modules[i];
+      const escaped = encodeURI(url)
+      if (skip.indexOf(escaped) !== -1 || existing_scripts.indexOf(escaped) !== -1) {
+        if (!window.requirejs) {
+          on_load();
+        }
+        continue;
       }
       var element = document.createElement('script');
       element.onload = on_load;
@@ -7694,6 +7731,27 @@ var element = document.getElementById('876d8d7a-8e6c-4494-9ae7-12917797faeb');
       element.src = url;
       element.type = "module";
       console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
+      document.head.appendChild(element);
+    }
+    for (const name in js_exports) {
+      const url = js_exports[name];
+      const escaped = encodeURI(url)
+      if (skip.indexOf(escaped) >= 0 || root[name] != null) {
+        if (!window.requirejs) {
+          on_load();
+        }
+        continue;
+      }
+      var element = document.createElement('script');
+      element.onerror = on_error;
+      element.async = false;
+      element.type = "module";
+      console.debug("Bokeh: injecting script tag for BokehJS library: ", url);
+      element.textContent = `
+      import ${name} from "${url}"
+      window.${name} = ${name}
+      window._bokeh_on_load()
+      `
       document.head.appendChild(element);
     }
     if (!js_urls.length && !js_modules.length) {
@@ -7707,12 +7765,11 @@ var element = document.getElementById('876d8d7a-8e6c-4494-9ae7-12917797faeb');
     document.body.appendChild(element);
   }
 
-  var js_urls = ["https://cdn.bokeh.org/bokeh/release/bokeh-2.4.3.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-gl-2.4.3.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-2.4.3.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-2.4.3.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-mathjax-2.4.3.min.js", "https://unpkg.com/@holoviz/panel@0.14.4/dist/panel.min.js"];
-  var js_modules = [];
-  var css_urls = ["https://cdn.holoviz.org/panel/0.14.4/dist/css/alerts.css", "https://cdn.holoviz.org/panel/0.14.4/dist/css/card.css", "https://cdn.holoviz.org/panel/0.14.4/dist/css/dataframe.css", "https://cdn.holoviz.org/panel/0.14.4/dist/css/debugger.css", "https://cdn.holoviz.org/panel/0.14.4/dist/css/json.css", "https://cdn.holoviz.org/panel/0.14.4/dist/css/loading.css", "https://cdn.holoviz.org/panel/0.14.4/dist/css/markdown.css", "https://cdn.holoviz.org/panel/0.14.4/dist/css/widgets.css"];
-  var inline_js = [    function(Bokeh) {
-      inject_raw_css("\n    .bk.pn-loading.arc:before {\n      background-image: url(\"data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHN0eWxlPSJtYXJnaW46IGF1dG87IGJhY2tncm91bmQ6IG5vbmU7IGRpc3BsYXk6IGJsb2NrOyBzaGFwZS1yZW5kZXJpbmc6IGF1dG87IiB2aWV3Qm94PSIwIDAgMTAwIDEwMCIgcHJlc2VydmVBc3BlY3RSYXRpbz0ieE1pZFlNaWQiPiAgPGNpcmNsZSBjeD0iNTAiIGN5PSI1MCIgZmlsbD0ibm9uZSIgc3Ryb2tlPSIjYzNjM2MzIiBzdHJva2Utd2lkdGg9IjEwIiByPSIzNSIgc3Ryb2tlLWRhc2hhcnJheT0iMTY0LjkzMzYxNDMxMzQ2NDE1IDU2Ljk3Nzg3MTQzNzgyMTM4Ij4gICAgPGFuaW1hdGVUcmFuc2Zvcm0gYXR0cmlidXRlTmFtZT0idHJhbnNmb3JtIiB0eXBlPSJyb3RhdGUiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIiBkdXI9IjFzIiB2YWx1ZXM9IjAgNTAgNTA7MzYwIDUwIDUwIiBrZXlUaW1lcz0iMDsxIj48L2FuaW1hdGVUcmFuc2Zvcm0+ICA8L2NpcmNsZT48L3N2Zz4=\");\n      background-size: auto calc(min(50%, 400px));\n    }\n    ");
-    },    function(Bokeh) {
+  const js_urls = ["https://cdn.holoviz.org/panel/1.5.3/dist/bundled/reactiveesm/es-module-shims@^1.10.0/dist/es-module-shims.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-3.5.2.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-gl-3.5.2.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-widgets-3.5.2.min.js", "https://cdn.bokeh.org/bokeh/release/bokeh-tables-3.5.2.min.js", "https://cdn.holoviz.org/panel/1.5.3/dist/panel.min.js"];
+  const js_modules = [];
+  const js_exports = {};
+  const css_urls = [];
+  const inline_js = [    function(Bokeh) {
       Bokeh.set_log_level("info");
     },
 function(Bokeh) {} // ensure no trailing comma for IE
@@ -7720,34 +7777,82 @@ function(Bokeh) {} // ensure no trailing comma for IE
 
   function run_inline_js() {
     if ((root.Bokeh !== undefined) || (force === true)) {
-      for (var i = 0; i < inline_js.length; i++) {
-        inline_js[i].call(root, root.Bokeh);
-      }} else if (Date.now() < root._bokeh_timeout) {
+      for (let i = 0; i < inline_js.length; i++) {
+        try {
+          inline_js[i].call(root, root.Bokeh);
+        } catch(e) {
+          if (!reloading) {
+            throw e;
+          }
+        }
+      }
+      // Cache old bokeh versions
+      if (Bokeh != undefined && !reloading) {
+        var NewBokeh = root.Bokeh;
+        if (Bokeh.versions === undefined) {
+          Bokeh.versions = new Map();
+        }
+        if (NewBokeh.version !== Bokeh.version) {
+          Bokeh.versions.set(NewBokeh.version, NewBokeh)
+        }
+        root.Bokeh = Bokeh;
+      }
+    } else if (Date.now() < root._bokeh_timeout) {
       setTimeout(run_inline_js, 100);
     } else if (!root._bokeh_failed_load) {
       console.log("Bokeh: BokehJS failed to load within specified timeout.");
       root._bokeh_failed_load = true;
     }
+    root._bokeh_is_initializing = false
   }
 
-  if (root._bokeh_is_loading === 0) {
-    console.debug("Bokeh: BokehJS loaded, going straight to plotting");
-    run_inline_js();
-  } else {
-    load_libs(css_urls, js_urls, js_modules, function() {
-      console.debug("Bokeh: BokehJS plotting callback run at", now());
-      run_inline_js();
-    });
+  function load_or_wait() {
+    // Implement a backoff loop that tries to ensure we do not load multiple
+    // versions of Bokeh and its dependencies at the same time.
+    // In recent versions we use the root._bokeh_is_initializing flag
+    // to determine whether there is an ongoing attempt to initialize
+    // bokeh, however for backward compatibility we also try to ensure
+    // that we do not start loading a newer (Panel>=1.0 and Bokeh>3) version
+    // before older versions are fully initialized.
+    if (root._bokeh_is_initializing && Date.now() > root._bokeh_timeout) {
+      // If the timeout and bokeh was not successfully loaded we reset
+      // everything and try loading again
+      root._bokeh_timeout = Date.now() + 5000;
+      root._bokeh_is_initializing = false;
+      root._bokeh_onload_callbacks = undefined;
+      root._bokeh_is_loading = 0
+      console.log("Bokeh: BokehJS was loaded multiple times but one version failed to initialize.");
+      load_or_wait();
+    } else if (root._bokeh_is_initializing || (typeof root._bokeh_is_initializing === "undefined" && root._bokeh_onload_callbacks !== undefined)) {
+      setTimeout(load_or_wait, 100);
+    } else {
+      root._bokeh_is_initializing = true
+      root._bokeh_onload_callbacks = []
+      const bokeh_loaded = root.Bokeh != null && (root.Bokeh.version === py_version || (root.Bokeh.versions !== undefined && root.Bokeh.versions.has(py_version)));
+      if (!reloading && !bokeh_loaded) {
+        if (root.Bokeh) {
+          root.Bokeh = undefined;
+        }
+        console.debug("Bokeh: BokehJS not loaded, scheduling load and callback at", now());
+      }
+      load_libs(css_urls, js_urls, js_modules, js_exports, function() {
+        console.debug("Bokeh: BokehJS plotting callback run at", now());
+        run_inline_js();
+      });
+    }
   }
+  // Give older versions of the autoload script a head-start to ensure
+  // they initialize before we start loading newer version.
+  setTimeout(load_or_wait, 100)
 }(window));
 </script>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedJavaScript jp-OutputArea-output" data-mime-type="application/javascript" id="3d946539-2326-4046-853e-39ca6b9cf5c9" tabindex="0">
+<div class="jp-RenderedJavaScript jp-OutputArea-output" data-mime-type="application/javascript" id="4b930994-6be3-40b9-9ded-5fabab1b01f5" tabindex="0">
 <script type="text/javascript">
-var element = document.getElementById('3d946539-2326-4046-853e-39ca6b9cf5c9');
+var element = document.getElementById('4b930994-6be3-40b9-9ded-5fabab1b01f5');
 
 if ((window.PyViz === undefined) || (window.PyViz instanceof HTMLElement)) {
   window.PyViz = {comms: {}, comm_status:{}, kernels:{}, receivers: {}, plot_index: []}
@@ -7994,23 +8099,87 @@ if (window.Jupyter !== undefined) {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output" data-mime-type="text/html" tabindex="0">
-<style>.bk-root, .bk-root .bk:before, .bk-root .bk:after {
-  font-family: var(--jp-ui-font-size1);
-  font-size: var(--jp-ui-font-size1);
-  color: var(--jp-ui-font-color1);
-}
-</style>
+<div id="725000ba-615c-4a73-90db-246fbed7f89c">
+<div data-root-id="725000ba-615c-4a73-90db-246fbed7f89c" id="ec02ab1c-ff40-42cb-acfe-68b25e8428ea" style="display: contents;"></div>
+</div>
+<script type="application/javascript">(function(root) {
+  var docs_json = {"6bba7a5d-3619-4cbb-86f2-8aa9334e5671":{"version":"3.5.2","title":"Bokeh Application","roots":[{"type":"object","name":"panel.models.browser.BrowserInfo","id":"725000ba-615c-4a73-90db-246fbed7f89c"},{"type":"object","name":"panel.models.comm_manager.CommManager","id":"4faa818a-9c66-415e-be15-33f7529833cd","attributes":{"plot_id":"725000ba-615c-4a73-90db-246fbed7f89c","comm_id":"b8bbd7cda9eb40aba47c3b6da100c6b0","client_comm_id":"5382d39b47b446d2b4931718d2855187"}}],"defs":[{"type":"model","name":"ReactiveHTML1"},{"type":"model","name":"FlexBox1","properties":[{"name":"align_content","kind":"Any","default":"flex-start"},{"name":"align_items","kind":"Any","default":"flex-start"},{"name":"flex_direction","kind":"Any","default":"row"},{"name":"flex_wrap","kind":"Any","default":"wrap"},{"name":"gap","kind":"Any","default":""},{"name":"justify_content","kind":"Any","default":"flex-start"}]},{"type":"model","name":"FloatPanel1","properties":[{"name":"config","kind":"Any","default":{"type":"map"}},{"name":"contained","kind":"Any","default":true},{"name":"position","kind":"Any","default":"right-top"},{"name":"offsetx","kind":"Any","default":null},{"name":"offsety","kind":"Any","default":null},{"name":"theme","kind":"Any","default":"primary"},{"name":"status","kind":"Any","default":"normalized"}]},{"type":"model","name":"GridStack1","properties":[{"name":"mode","kind":"Any","default":"warn"},{"name":"ncols","kind":"Any","default":null},{"name":"nrows","kind":"Any","default":null},{"name":"allow_resize","kind":"Any","default":true},{"name":"allow_drag","kind":"Any","default":true},{"name":"state","kind":"Any","default":[]}]},{"type":"model","name":"drag1","properties":[{"name":"slider_width","kind":"Any","default":5},{"name":"slider_color","kind":"Any","default":"black"},{"name":"value","kind":"Any","default":50}]},{"type":"model","name":"click1","properties":[{"name":"terminal_output","kind":"Any","default":""},{"name":"debug_name","kind":"Any","default":""},{"name":"clears","kind":"Any","default":0}]},{"type":"model","name":"FastWrapper1","properties":[{"name":"object","kind":"Any","default":null},{"name":"style","kind":"Any","default":null}]},{"type":"model","name":"NotificationAreaBase1","properties":[{"name":"js_events","kind":"Any","default":{"type":"map"}},{"name":"position","kind":"Any","default":"bottom-right"},{"name":"_clear","kind":"Any","default":0}]},{"type":"model","name":"NotificationArea1","properties":[{"name":"js_events","kind":"Any","default":{"type":"map"}},{"name":"notifications","kind":"Any","default":[]},{"name":"position","kind":"Any","default":"bottom-right"},{"name":"_clear","kind":"Any","default":0},{"name":"types","kind":"Any","default":[{"type":"map","entries":[["type","warning"],["background","#ffc107"],["icon",{"type":"map","entries":[["className","fas fa-exclamation-triangle"],["tagName","i"],["color","white"]]}]]},{"type":"map","entries":[["type","info"],["background","#007bff"],["icon",{"type":"map","entries":[["className","fas fa-info-circle"],["tagName","i"],["color","white"]]}]]}]}]},{"type":"model","name":"Notification","properties":[{"name":"background","kind":"Any","default":null},{"name":"duration","kind":"Any","default":3000},{"name":"icon","kind":"Any","default":null},{"name":"message","kind":"Any","default":""},{"name":"notification_type","kind":"Any","default":null},{"name":"_destroyed","kind":"Any","default":false}]},{"type":"model","name":"TemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"BootstrapTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"TemplateEditor1","properties":[{"name":"layout","kind":"Any","default":[]}]},{"type":"model","name":"MaterialTemplateActions1","properties":[{"name":"open_modal","kind":"Any","default":0},{"name":"close_modal","kind":"Any","default":0}]},{"type":"model","name":"ReactiveESM1"},{"type":"model","name":"JSComponent1"},{"type":"model","name":"ReactComponent1"},{"type":"model","name":"AnyWidgetComponent1"},{"type":"model","name":"request_value1","properties":[{"name":"fill","kind":"Any","default":"none"},{"name":"_synced","kind":"Any","default":null},{"name":"_request_sync","kind":"Any","default":0}]}]}};
+  var render_items = [{"docid":"6bba7a5d-3619-4cbb-86f2-8aa9334e5671","roots":{"725000ba-615c-4a73-90db-246fbed7f89c":"ec02ab1c-ff40-42cb-acfe-68b25e8428ea"},"root_ids":["725000ba-615c-4a73-90db-246fbed7f89c"]}];
+  var docs = Object.values(docs_json)
+  if (!docs) {
+    return
+  }
+  const py_version = docs[0].version.replace('rc', '-rc.').replace('.dev', '-dev.')
+  async function embed_document(root) {
+    var Bokeh = get_bokeh(root)
+    await Bokeh.embed.embed_items_notebook(docs_json, render_items);
+    for (const render_item of render_items) {
+      for (const root_id of render_item.root_ids) {
+	const id_el = document.getElementById(root_id)
+	if (id_el.children.length && id_el.children[0].hasAttribute('data-root-id')) {
+	  const root_el = id_el.children[0]
+	  root_el.id = root_el.id + '-rendered'
+	  for (const child of root_el.children) {
+            // Ensure JupyterLab does not capture keyboard shortcuts
+            // see: https://jupyterlab.readthedocs.io/en/4.1.x/extension/notebook.html#keyboard-interaction-model
+	    child.setAttribute('data-lm-suppress-shortcuts', 'true')
+	  }
+	}
+      }
+    }
+  }
+  function get_bokeh(root) {
+    if (root.Bokeh === undefined) {
+      return null
+    } else if (root.Bokeh.version !== py_version) {
+      if (root.Bokeh.versions === undefined || !root.Bokeh.versions.has(py_version)) {
+	return null
+      }
+      return root.Bokeh.versions.get(py_version);
+    } else if (root.Bokeh.version === py_version) {
+      return root.Bokeh
+    }
+    return null
+  }
+  function is_loaded(root) {
+    var Bokeh = get_bokeh(root)
+    return (Bokeh != null && Bokeh.Panel !== undefined)
+  }
+  if (is_loaded(root)) {
+    embed_document(root);
+  } else {
+    var attempts = 0;
+    var timer = setInterval(function(root) {
+      if (is_loaded(root)) {
+        clearInterval(timer);
+        embed_document(root);
+      } else if (document.readyState == "complete") {
+        attempts++;
+        if (attempts > 200) {
+          clearInterval(timer);
+	  var Bokeh = get_bokeh(root)
+	  if (Bokeh == null || Bokeh.Panel == null) {
+            console.warn("Panel: ERROR: Unable to run Panel code because Bokeh or Panel library is missing");
+	  } else {
+	    console.warn("Panel: WARNING: Attempting to render but not all required libraries could be resolved.")
+	    embed_document(root)
+	  }
+        }
+      }
+    }, 25, root)
+  }
+})(window);</script>
 </div>
 </div>
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>
-MovingPandas 0.18.1
+MovingPandas 0.20.0
 
 SYSTEM INFO
 -----------
-python     : 3.10.14 | packaged by conda-forge | (main, Mar 20 2024, 12:40:08) [MSC v.1938 64 bit (AMD64)]
+python     : 3.10.15 | packaged by conda-forge | (main, Oct 16 2024, 01:15:49) [MSC v.1941 64 bit (AMD64)]
 executable : c:\Users\Agarkovam\AppData\Local\miniforge3\envs\mpd-ex\python.exe
 machine    : Windows-10-10.0.19045-SP0
 
@@ -8018,27 +8187,26 @@ GEOS, GDAL, PROJ INFO
 ---------------------
 GEOS       : None
 GEOS lib   : None
-GDAL       : 3.8.5
+GDAL       : None
 GDAL data dir: None
-PROJ       : 9.4.0
+PROJ       : 9.5.0
 PROJ data dir: C:\Users\Agarkovam\AppData\Local\miniforge3\envs\mpd-ex\Library\share\proj
 
 PYTHON DEPENDENCIES
 -------------------
-geopandas  : 0.14.4
-pandas     : 2.2.2
-fiona      : 1.9.6
-numpy      : 1.26.4
-shapely    : 2.0.4
-rtree      : 1.2.0
-pyproj     : 3.6.1
-matplotlib : 3.8.4
-mapclassify: 2.6.1
+geopandas  : 1.0.1
+pandas     : 2.2.3
+fiona      : None
+numpy      : 1.23.1
+shapely    : 2.0.6
+pyproj     : 3.7.0
+matplotlib : 3.9.2
+mapclassify: 2.8.1
 geopy      : 2.4.1
-holoviews  : 1.17.1
-hvplot     : 0.8.3
-geoviews   : 1.9.6
-stonesoup  : 1.2
+holoviews  : 1.20.0
+hvplot     : 0.11.1
+geoviews   : 1.13.0
+stonesoup  : 1.4
 </pre>
 </div>
 </div>
@@ -8060,15 +8228,17 @@ stonesoup  : 1.2
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [2]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span>
-  <span class="p">{</span><span class="s1">'geometry'</span><span class="p">:</span><span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="s1">'t'</span><span class="p">:</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)},</span>
-  <span class="p">{</span><span class="s1">'geometry'</span><span class="p">:</span><span class="n">Point</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">0</span><span class="p">),</span> <span class="s1">'t'</span><span class="p">:</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">0</span><span class="p">)},</span>
-  <span class="p">{</span><span class="s1">'geometry'</span><span class="p">:</span><span class="n">Point</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span><span class="mi">6</span><span class="p">),</span> <span class="s1">'t'</span><span class="p">:</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">0</span><span class="p">)},</span>
-  <span class="p">{</span><span class="s1">'geometry'</span><span class="p">:</span><span class="n">Point</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span><span class="mi">9</span><span class="p">),</span> <span class="s1">'t'</span><span class="p">:</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">0</span><span class="p">)}</span>
-<span class="p">])</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">'t'</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">{</span><span class="s2">"geometry"</span><span class="p">:</span> <span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="s2">"t"</span><span class="p">:</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)},</span>
+        <span class="p">{</span><span class="s2">"geometry"</span><span class="p">:</span> <span class="n">Point</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">),</span> <span class="s2">"t"</span><span class="p">:</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">)},</span>
+        <span class="p">{</span><span class="s2">"geometry"</span><span class="p">:</span> <span class="n">Point</span><span class="p">(</span><span class="mi">6</span><span class="p">,</span> <span class="mi">6</span><span class="p">),</span> <span class="s2">"t"</span><span class="p">:</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">)},</span>
+        <span class="p">{</span><span class="s2">"geometry"</span><span class="p">:</span> <span class="n">Point</span><span class="p">(</span><span class="mi">9</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="s2">"t"</span><span class="p">:</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">0</span><span class="p">)},</span>
+    <span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">"t"</span><span class="p">)</span>
 <span class="n">geo_df</span> <span class="o">=</span> <span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="mi">31256</span><span class="p">)</span>
 <span class="n">toy_traj</span> <span class="o">=</span> <span class="n">mpd</span><span class="o">.</span><span class="n">Trajectory</span><span class="p">(</span><span class="n">geo_df</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">toy_traj</span><span class="o">.</span><span class="n">df</span>
@@ -8082,7 +8252,7 @@ stonesoup  : 1.2
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[ ]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[2]:</div>
 <div class="jp-RenderedHTMLCommon jp-RenderedHTML jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/html" tabindex="0">
 <div>
 <style scoped="">
@@ -8114,22 +8284,22 @@ stonesoup  : 1.2
 <tbody>
 <tr>
 <th>2018-01-01 12:00:00</th>
-<td>POINT (0.000 0.000)</td>
+<td>POINT (0 0)</td>
 <td>1</td>
 </tr>
 <tr>
 <th>2018-01-01 12:06:00</th>
-<td>POINT (6.000 0.000)</td>
+<td>POINT (6 0)</td>
 <td>1</td>
 </tr>
 <tr>
 <th>2018-01-01 12:10:00</th>
-<td>POINT (6.000 6.000)</td>
+<td>POINT (6 6)</td>
 <td>1</td>
 </tr>
 <tr>
 <th>2018-01-01 12:15:00</th>
-<td>POINT (9.000 9.000)</td>
+<td>POINT (9 9)</td>
 <td>1</td>
 </tr>
 </tbody>
@@ -8144,21 +8314,23 @@ stonesoup  : 1.2
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">([</span>
-  <span class="p">{</span><span class="s1">'geometry'</span><span class="p">:</span><span class="n">Point</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="s1">'t'</span><span class="p">:</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">0</span><span class="p">,</span><span class="mi">0</span><span class="p">)},</span>
-  <span class="p">{</span><span class="s1">'geometry'</span><span class="p">:</span><span class="n">Point</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">9</span><span class="p">),</span> <span class="s1">'t'</span><span class="p">:</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">6</span><span class="p">,</span><span class="mi">0</span><span class="p">)},</span>
-  <span class="p">{</span><span class="s1">'geometry'</span><span class="p">:</span><span class="n">Point</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">9</span><span class="p">),</span> <span class="s1">'t'</span><span class="p">:</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="mi">0</span><span class="p">)},</span>
-  <span class="p">{</span><span class="s1">'geometry'</span><span class="p">:</span><span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="mi">7</span><span class="p">),</span> <span class="s1">'t'</span><span class="p">:</span><span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">12</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">0</span><span class="p">)}</span>
-<span class="p">])</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s1">'t'</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span>
+    <span class="p">[</span>
+        <span class="p">{</span><span class="s2">"geometry"</span><span class="p">:</span> <span class="n">Point</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="s2">"t"</span><span class="p">:</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">)},</span>
+        <span class="p">{</span><span class="s2">"geometry"</span><span class="p">:</span> <span class="n">Point</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="s2">"t"</span><span class="p">:</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">0</span><span class="p">)},</span>
+        <span class="p">{</span><span class="s2">"geometry"</span><span class="p">:</span> <span class="n">Point</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="mi">9</span><span class="p">),</span> <span class="s2">"t"</span><span class="p">:</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">0</span><span class="p">)},</span>
+        <span class="p">{</span><span class="s2">"geometry"</span><span class="p">:</span> <span class="n">Point</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">7</span><span class="p">),</span> <span class="s2">"t"</span><span class="p">:</span> <span class="n">datetime</span><span class="p">(</span><span class="mi">2018</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">12</span><span class="p">,</span> <span class="mi">15</span><span class="p">,</span> <span class="mi">0</span><span class="p">)},</span>
+    <span class="p">]</span>
+<span class="p">)</span><span class="o">.</span><span class="n">set_index</span><span class="p">(</span><span class="s2">"t"</span><span class="p">)</span>
 <span class="n">geo_df</span> <span class="o">=</span> <span class="n">GeoDataFrame</span><span class="p">(</span><span class="n">df</span><span class="p">,</span> <span class="n">crs</span><span class="o">=</span><span class="mi">31256</span><span class="p">)</span>
 <span class="n">toy_traj2</span> <span class="o">=</span> <span class="n">mpd</span><span class="o">.</span><span class="n">Trajectory</span><span class="p">(</span><span class="n">geo_df</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">toy_traj2</span><span class="o">.</span><span class="n">df</span>
 
 <span class="n">ax</span> <span class="o">=</span> <span class="n">toy_traj</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-<span class="n">toy_traj2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">)</span>
+<span class="n">toy_traj2</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"red"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8169,7 +8341,7 @@ stonesoup  : 1.2
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[ ]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[3]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>&lt;Axes: &gt;</pre>
 </div>
@@ -8177,7 +8349,7 @@ stonesoup  : 1.2
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedImage jp-OutputArea-output" tabindex="0">
-<img alt="No description has been provided for this image" class="" src="data:image/png;base64,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/nKcdtpp/du6detSzQdARpV9iQwABsOzyABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhiSIF57LHHYvr06TF27NiYPXt2vPTSSyM9FwAZV3Zg1q1bF4sWLYply5bFtm3b4uKLL47LL788duzYkWI+ADLqhHIPePjhh+Pb3/52fOc734mIiJUrV8bzzz8fq1atinw+P+IDHs2+/Qcqch7gH/x3R7nKCsz+/fuju7s7lixZMmD//PnzY/PmzUc9pq+vL/r6+vpfFwqFIYw50Fn3Pj/sPwOAtMq6RPbxxx/HwYMHY9KkSQP2T5o0KT766KOjHpPP56O1tbV/a29vH/q0QNX9578viPFjyr74QQMa0r8lo0aNGvC6WCwese+wpUuXxuLFi/tfFwqFYUfmz8v/eVjHA5BeWYE59dRTo6mp6YjVyq5du45Y1RyWy+Uil8sNfcKj8H9PALWvrEtkY8aMidmzZ8eGDRsG7N+wYUPMmTNnRAcDINvKXgosXrw4brzxxujo6IiLLroourq6YseOHXHrrbemmA+AjCo7MN/85jfj73//eyxfvjw+/PDDmDVrVvz2t7+NadOmpZgPgIwaVSwWi5U8YaFQiNbW1ujt7Y2WlpZKnhqAYSrne7hnkQGQhMAAkITAAJCEwACQhMAAkITAAJCEwACQhMAAkITAAJBExR9LfPjBASPxi8cAqKzD37sH8xCYigdm9+7dERF+8RhAhu3evTtaW1uP+56KP4vs0KFDsXPnzmhubj7mLyk7nsO/sKynp8ezzD6Hz2rwfFaD43MavHr9rIrFYuzevTsmT54co0cf/y5LxVcwo0ePjilTpgz7z2lpaamrf2gp+awGz2c1OD6nwavHz+rzVi6HuckPQBICA0ASmQtMLpeL++67L3K5XLVHqXk+q8HzWQ2Oz2nwfFZVuMkPQGPI3AoGgGwQGACSEBgAkhAYAJLIXGAee+yxmD59eowdOzZmz54dL730UrVHqjn5fD4uuOCCaG5ujra2trj66qvj3XffrfZYNS+fz8eoUaNi0aJF1R6lJn3wwQdxww03xMSJE2P8+PFx7rnnRnd3d7XHqjkHDhyIe+65J6ZPnx7jxo2LM844I5YvXx6HDh2q9mgVl6nArFu3LhYtWhTLli2Lbdu2xcUXXxyXX3557Nixo9qj1ZSNGzdGZ2dnbNmyJTZs2BAHDhyI+fPnx969e6s9Ws3aunVrdHV1xTnnnFPtUWrSJ598EnPnzo0TTzwxnnvuufjzn/8cP/3pT+Pkk0+u9mg156GHHorHH388Hn300XjnnXfiRz/6Ufz4xz+ORx55pNqjVVymfkz5wgsvjPPPPz9WrVrVv+/MM8+Mq6++OvL5fBUnq21/+9vfoq2tLTZu3BiXXHJJtcepOXv27Inzzz8/HnvssfjhD38Y5557bqxcubLaY9WUJUuWxB//+EdXDAbhyiuvjEmTJsXPf/7z/n1f//rXY/z48fHLX/6yipNVXmZWMPv374/u7u6YP3/+gP3z58+PzZs3V2mqbOjt7Y2IiFNOOaXKk9Smzs7OWLBgQVx22WXVHqVmrV+/Pjo6OuKaa66Jtra2OO+882L16tXVHqsmzZs3L1544YXYvn17RES8+eab8fLLL8cVV1xR5ckqr+IPuxyqjz/+OA4ePBiTJk0asH/SpEnx0UcfVWmq2lcsFmPx4sUxb968mDVrVrXHqTlPP/10vP7667F169Zqj1LT3nvvvVi1alUsXrw4vv/978err74ad9xxR+RyufjWt75V7fFqyt133x29vb0xY8aMaGpqioMHD8aKFSviuuuuq/ZoFZeZwBz22Uf8F4vFIT32v1Hcdttt8dZbb8XLL79c7VFqTk9PTyxcuDB+//vfx9ixY6s9Tk07dOhQdHR0xIMPPhgREeedd1786U9/ilWrVgnMZ6xbty6efPLJWLt2bcycOTPeeOONWLRoUUyePDluuummao9XUZkJzKmnnhpNTU1HrFZ27dp1xKqGT91+++2xfv362LRp04j8ioR6093dHbt27YrZs2f37zt48GBs2rQpHn300ejr64umpqYqTlg7TjvttDjrrLMG7DvzzDPjV7/6VZUmql133XVXLFmyJK699tqIiDj77LPj/fffj3w+33CBycw9mDFjxsTs2bNjw4YNA/Zv2LAh5syZU6WpalOxWIzbbrstfv3rX8cf/vCHmD59erVHqkmXXnppvP322/HGG2/0bx0dHXH99dfHG2+8IS4l5s6de8SPum/fvj2mTZtWpYlq1759+474RVxNTU0N+WPKmVnBREQsXrw4brzxxujo6IiLLroourq6YseOHXHrrbdWe7Sa0tnZGWvXro1nn302mpub+1d9ra2tMW7cuCpPVzuam5uPuC81YcKEmDhxovtVn3HnnXfGnDlz4sEHH4xvfOMb8eqrr0ZXV1d0dXVVe7Sac9VVV8WKFSti6tSpMXPmzNi2bVs8/PDDccstt1R7tMorZszPfvaz4rRp04pjxowpnn/++cWNGzdWe6SaExFH3Z544olqj1bzvvSlLxUXLlxY7TFq0m9+85virFmzirlcrjhjxoxiV1dXtUeqSYVCobhw4cLi1KlTi2PHji2eccYZxWXLlhX7+vqqPVrFZervwQCQHZm5BwNAtggMAEkIDABJCAwASQgMAEkIDABJCAwASQgMAEkIDABJCAwASQgMAEkIDABJ/H8ho4A3wj2D7gAAAABJRU5ErkJggg=="/>
+<img alt="No description has been provided for this image" class="" src="data:image/png;base64,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/nKcdtpp/du6detSzQdARpV9iQwABsOzyABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhiSIF57LHHYvr06TF27NiYPXt2vPTSSyM9FwAZV3Zg1q1bF4sWLYply5bFtm3b4uKLL47LL788duzYkWI+ADLqhHIPePjhh+Pb3/52fOc734mIiJUrV8bzzz8fq1atinw+P+IDHs2+/Qcqch7gH/x3R7nKCsz+/fuju7s7lixZMmD//PnzY/PmzUc9pq+vL/r6+vpfFwqFIYw50Fn3Pj/sPwOAtMq6RPbxxx/HwYMHY9KkSQP2T5o0KT766KOjHpPP56O1tbV/a29vH/q0QNX9578viPFjyr74QQMa0r8lo0aNGvC6WCwese+wpUuXxuLFi/tfFwqFYUfmz8v/eVjHA5BeWYE59dRTo6mp6YjVyq5du45Y1RyWy+Uil8sNfcKj8H9PALWvrEtkY8aMidmzZ8eGDRsG7N+wYUPMmTNnRAcDINvKXgosXrw4brzxxujo6IiLLroourq6YseOHXHrrbemmA+AjCo7MN/85jfj73//eyxfvjw+/PDDmDVrVvz2t7+NadOmpZgPgIwaVSwWi5U8YaFQiNbW1ujt7Y2WlpZKnhqAYSrne7hnkQGQhMAAkITAAJCEwACQhMAAkITAAJCEwACQhMAAkITAAJBExR9LfPjBASPxi8cAqKzD37sH8xCYigdm9+7dERF+8RhAhu3evTtaW1uP+56KP4vs0KFDsXPnzmhubj7mLyk7nsO/sKynp8ezzD6Hz2rwfFaD43MavHr9rIrFYuzevTsmT54co0cf/y5LxVcwo0ePjilTpgz7z2lpaamrf2gp+awGz2c1OD6nwavHz+rzVi6HuckPQBICA0ASmQtMLpeL++67L3K5XLVHqXk+q8HzWQ2Oz2nwfFZVuMkPQGPI3AoGgGwQGACSEBgAkhAYAJLIXGAee+yxmD59eowdOzZmz54dL730UrVHqjn5fD4uuOCCaG5ujra2trj66qvj3XffrfZYNS+fz8eoUaNi0aJF1R6lJn3wwQdxww03xMSJE2P8+PFx7rnnRnd3d7XHqjkHDhyIe+65J6ZPnx7jxo2LM844I5YvXx6HDh2q9mgVl6nArFu3LhYtWhTLli2Lbdu2xcUXXxyXX3557Nixo9qj1ZSNGzdGZ2dnbNmyJTZs2BAHDhyI+fPnx969e6s9Ws3aunVrdHV1xTnnnFPtUWrSJ598EnPnzo0TTzwxnnvuufjzn/8cP/3pT+Pkk0+u9mg156GHHorHH388Hn300XjnnXfiRz/6Ufz4xz+ORx55pNqjVVymfkz5wgsvjPPPPz9WrVrVv+/MM8+Mq6++OvL5fBUnq21/+9vfoq2tLTZu3BiXXHJJtcepOXv27Inzzz8/HnvssfjhD38Y5557bqxcubLaY9WUJUuWxB//+EdXDAbhyiuvjEmTJsXPf/7z/n1f//rXY/z48fHLX/6yipNVXmZWMPv374/u7u6YP3/+gP3z58+PzZs3V2mqbOjt7Y2IiFNOOaXKk9Smzs7OWLBgQVx22WXVHqVmrV+/Pjo6OuKaa66Jtra2OO+882L16tXVHqsmzZs3L1544YXYvn17RES8+eab8fLLL8cVV1xR5ckqr+IPuxyqjz/+OA4ePBiTJk0asH/SpEnx0UcfVWmq2lcsFmPx4sUxb968mDVrVrXHqTlPP/10vP7667F169Zqj1LT3nvvvVi1alUsXrw4vv/978err74ad9xxR+RyufjWt75V7fFqyt133x29vb0xY8aMaGpqioMHD8aKFSviuuuuq/ZoFZeZwBz22Uf8F4vFIT32v1Hcdttt8dZbb8XLL79c7VFqTk9PTyxcuDB+//vfx9ixY6s9Tk07dOhQdHR0xIMPPhgREeedd1786U9/ilWrVgnMZ6xbty6efPLJWLt2bcycOTPeeOONWLRoUUyePDluuummao9XUZkJzKmnnhpNTU1HrFZ27dp1xKqGT91+++2xfv362LRp04j8ioR6093dHbt27YrZs2f37zt48GBs2rQpHn300ejr64umpqYqTlg7TjvttDjrrLMG7DvzzDPjV7/6VZUmql133XVXLFmyJK699tqIiDj77LPj/fffj3w+33CBycw9mDFjxsTs2bNjw4YNA/Zv2LAh5syZU6WpalOxWIzbbrstfv3rX8cf/vCHmD59erVHqkmXXnppvP322/HGG2/0bx0dHXH99dfHG2+8IS4l5s6de8SPum/fvj2mTZtWpYlq1759+474RVxNTU0N+WPKmVnBREQsXrw4brzxxujo6IiLLroourq6YseOHXHrrbdWe7Sa0tnZGWvXro1nn302mpub+1d9ra2tMW7cuCpPVzuam5uPuC81YcKEmDhxovtVn3HnnXfGnDlz4sEHH4xvfOMb8eqrr0ZXV1d0dXVVe7Sac9VVV8WKFSti6tSpMXPmzNi2bVs8/PDDccstt1R7tMorZszPfvaz4rRp04pjxowpnn/++cWNGzdWe6SaExFH3Z544olqj1bzvvSlLxUXLlxY7TFq0m9+85virFmzirlcrjhjxoxiV1dXtUeqSYVCobhw4cLi1KlTi2PHji2eccYZxWXLlhX7+vqqPVrFZervwQCQHZm5BwNAtggMAEkIDABJCAwASQgMAEkIDABJCAwASQgMAEkIDABJCAwASQgMAEkIDABJ/H8ho4A3wj2D7gAAAABJRU5ErkJggg=="/>
 </div>
 </div>
 </div>
@@ -8187,11 +8359,11 @@ stonesoup  : 1.2
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Distance: </span><span class="si">{</span><span class="n">toy_traj</span><span class="o">.</span><span class="n">distance</span><span class="p">(</span><span class="n">toy_traj2</span><span class="p">)</span><span class="si">}</span><span class="s1"> meters'</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Hausdorff distance: </span><span class="si">{</span><span class="n">toy_traj</span><span class="o">.</span><span class="n">hausdorff_distance</span><span class="p">(</span><span class="n">toy_traj2</span><span class="p">)</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1"> meters'</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Distance: </span><span class="si">{</span><span class="n">toy_traj</span><span class="o">.</span><span class="n">distance</span><span class="p">(</span><span class="n">toy_traj2</span><span class="p">)</span><span class="si">}</span><span class="s2"> meters"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Hausdorff distance: </span><span class="si">{</span><span class="n">toy_traj</span><span class="o">.</span><span class="n">hausdorff_distance</span><span class="p">(</span><span class="n">toy_traj2</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2"> meters"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8216,11 +8388,13 @@ Hausdorff distance: 6.08 meters
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Distance: </span><span class="si">{</span><span class="n">toy_traj</span><span class="o">.</span><span class="n">distance</span><span class="p">(</span><span class="n">toy_traj2</span><span class="p">,</span><span class="w"> </span><span class="n">units</span><span class="o">=</span><span class="s2">"cm"</span><span class="p">)</span><span class="si">}</span><span class="s1"> cm'</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Hausdorff distance: </span><span class="si">{</span><span class="n">toy_traj</span><span class="o">.</span><span class="n">hausdorff_distance</span><span class="p">(</span><span class="n">toy_traj2</span><span class="p">,</span><span class="w"> </span><span class="n">units</span><span class="o">=</span><span class="s2">"km"</span><span class="p">)</span><span class="si">:</span><span class="s1">.6f</span><span class="si">}</span><span class="s1"> km'</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span>
+    <span class="sa">f</span><span class="s1">'Hausdorff distance: </span><span class="si">{</span><span class="n">toy_traj</span><span class="o">.</span><span class="n">hausdorff_distance</span><span class="p">(</span><span class="n">toy_traj2</span><span class="p">,</span><span class="w"> </span><span class="n">units</span><span class="o">=</span><span class="s2">"km"</span><span class="p">)</span><span class="si">:</span><span class="s1">.6f</span><span class="si">}</span><span class="s1"> km'</span>
+<span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8256,15 +8430,15 @@ Hausdorff distance: 0.006083 km
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">pt</span> <span class="o">=</span> <span class="n">Point</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
-<span class="n">line</span> <span class="o">=</span> <span class="n">LineString</span><span class="p">([(</span><span class="mi">3</span><span class="p">,</span><span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">9</span><span class="p">)])</span>
+<span class="n">line</span> <span class="o">=</span> <span class="n">LineString</span><span class="p">([(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">3</span><span class="p">),</span> <span class="p">(</span><span class="mi">3</span><span class="p">,</span> <span class="mi">9</span><span class="p">)])</span>
 
 <span class="n">ax</span> <span class="o">=</span> <span class="n">toy_traj</span><span class="o">.</span><span class="n">plot</span><span class="p">()</span>
-<span class="n">gpd</span><span class="o">.</span><span class="n">GeoSeries</span><span class="p">(</span><span class="n">pt</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">)</span>
-<span class="n">gpd</span><span class="o">.</span><span class="n">GeoSeries</span><span class="p">(</span><span class="n">line</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">'red'</span><span class="p">)</span>
+<span class="n">gpd</span><span class="o">.</span><span class="n">GeoSeries</span><span class="p">(</span><span class="n">pt</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"red"</span><span class="p">)</span>
+<span class="n">gpd</span><span class="o">.</span><span class="n">GeoSeries</span><span class="p">(</span><span class="n">line</span><span class="p">)</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">ax</span><span class="o">=</span><span class="n">ax</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s2">"red"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8275,7 +8449,7 @@ Hausdorff distance: 0.006083 km
 </div>
 <div class="jp-OutputArea jp-Cell-outputArea">
 <div class="jp-OutputArea-child jp-OutputArea-executeResult">
-<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[ ]:</div>
+<div class="jp-OutputPrompt jp-OutputArea-prompt">Out[6]:</div>
 <div class="jp-RenderedText jp-OutputArea-output jp-OutputArea-executeResult" data-mime-type="text/plain" tabindex="0">
 <pre>&lt;Axes: &gt;</pre>
 </div>
@@ -8283,7 +8457,7 @@ Hausdorff distance: 0.006083 km
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedImage jp-OutputArea-output" tabindex="0">
-<img alt="No description has been provided for this image" class="" src="data:image/png;base64,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jTfGqlWr4nOf+9xIzwRADRhSYDo6OmLBggVx2WWXfea2vb29USgUBiwA1L6TSt3hmWeeiddffz22bds2qO3z+Xw8+OCDJQ8GQLaVdAXT3d0dCxcujKeeeirGjBkzqH2WLl0aPT09/Ut3d/eQBgUgW0q6gunq6ordu3fHrFmz+tf19fXFpk2b4rHHHove3t5obGwcsE8ul4tcLjcy0wKQGSUF5tJLL4233357wLpbb701pk+fHvfee+9RcQGgfpUUmKamppg5c+aAdePHj48JEyYctR6A+uaT/AAkUfK7yD7tpZdeGoExAKg1rmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABI4qRKD0AdGT8+olis9BRAmbiCASAJgQEgCYEBIAmBASAJgQEgCYEBIAmBASAJgQEgCYEBIAmBASAJgQEgCYEBIAmBASAJgQEgCYEBIAmBASAJgQEgCYEBIAmBASAJgQEgCYEBIAmBASAJgQEgCYEBIAmBASAJgQEgCYEBIAmBASAJgQEgCYEBIAmBASAJgQEgCYEBIImSApPP5+Oiiy6KpqamaG1tjWuuuSbefffdVLMBkGElBWbjxo3R0dERW7dujQ0bNsTBgwdj/vz5sW/fvlTzAZBRJ5Wy8W9/+9sBj5988slobW2Nrq6uuOSSS0Z0MACyraTAfFpPT09ERJx22mnH3aa3tzd6e3v7HxcKheEcEoCMGPKL/MViMRYvXhxz586NmTNnHne7fD4fLS0t/UtbW9tQDwlAhgw5MHfccUe89dZb8fTTT59wu6VLl0ZPT0//0t3dPdRDApAhQ7pFduedd8b69etj06ZNMWXKlBNum8vlIpfLDWk4ALKrpMAUi8W4884749lnn42XXnoppk2blmouADKupMB0dHTEmjVr4rnnnoumpqb46KOPIiKipaUlxo4dm2RAALKppNdgVq5cGT09PfHlL385Jk2a1L+sXbs21XwAZFTJt8gAYDB8FxkASQgMAEkIDABJCAwASQgMAEkIDABJCAwASQgMAEkIDABJCAwASQgMAEkIDABJCAwASQgMAEkIDABJCAwASQgM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"/>
+<img alt="No description has been provided for this image" class="" src="data:image/png;base64,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jTfGqlWr4nOf+9xIzwRADRhSYDo6OmLBggVx2WWXfea2vb29USgUBiwA1L6TSt3hmWeeiddffz22bds2qO3z+Xw8+OCDJQ8GQLaVdAXT3d0dCxcujKeeeirGjBkzqH2WLl0aPT09/Ut3d/eQBgUgW0q6gunq6ordu3fHrFmz+tf19fXFpk2b4rHHHove3t5obGwcsE8ul4tcLjcy0wKQGSUF5tJLL4233357wLpbb701pk+fHvfee+9RcQGgfpUUmKamppg5c+aAdePHj48JEyYctR6A+uaT/AAkUfK7yD7tpZdeGoExAKg1rmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABIQmAASEJgAEhCYABI4qRKD0AdGT8+olis9BRAmbiCASAJgQEgCYEBIAmBASAJgQEgCYEBIAmBASAJgQEgCYEBIAmBASAJgQEgCYEBIAmBASAJgQEgCYEBIAmBASAJgQEgCYEBIAmBASAJgQEgCYEBIAmBASAJgQEgCYEBIAmBASAJgQEgCYEBIAmBASAJgQEgCYEBIAmBASAJgQEgCYEBIImSApPP5+Oiiy6KpqamaG1tjWuuuSbefffdVLMBkGElBWbjxo3R0dERW7dujQ0bNsTBgwdj/vz5sW/fvlTzAZBRJ5Wy8W9/+9sBj5988slobW2Nrq6uuOSSS0Z0MACyraTAfFpPT09ERJx22mnH3aa3tzd6e3v7HxcKheEcEoCMGPKL/MViMRYvXhxz586NmTNnHne7fD4fLS0t/UtbW9tQDwlAhgw5MHfccUe89dZb8fTTT59wu6VLl0ZPT0//0t3dPdRDApAhQ7pFduedd8b69etj06ZNMWXKlBNum8vlIpfLDWk4ALKrpMAUi8W4884749lnn42XXnoppk2blmouADKupMB0dHTEmjVr4rnnnoumpqb46KOPIiKipaUlxo4dm2RAALKppNdgVq5cGT09PfHlL385Jk2a1L+sXbs21XwAZFTJt8gAYDB8FxkASQgMAEkIDABJCAwASQgMAEkIDABJCAwASQgMAEkIDABJCAwASQgMAEkIDABJCAwASQgMAEkIDABJCAwASQgM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"/>
 </div>
 </div>
 </div>
@@ -8293,11 +8467,11 @@ Hausdorff distance: 0.006083 km
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [7]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Distance: </span><span class="si">{</span><span class="n">toy_traj</span><span class="o">.</span><span class="n">distance</span><span class="p">(</span><span class="n">pt</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Hausdorff distance: </span><span class="si">{</span><span class="n">toy_traj</span><span class="o">.</span><span class="n">hausdorff_distance</span><span class="p">(</span><span class="n">pt</span><span class="p">)</span><span class="si">:</span><span class="s1">.2f</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Distance: </span><span class="si">{</span><span class="n">toy_traj</span><span class="o">.</span><span class="n">distance</span><span class="p">(</span><span class="n">pt</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Hausdorff distance: </span><span class="si">{</span><span class="n">toy_traj</span><span class="o">.</span><span class="n">hausdorff_distance</span><span class="p">(</span><span class="n">pt</span><span class="p">)</span><span class="si">:</span><span class="s2">.2f</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8322,11 +8496,11 @@ Hausdorff distance: 8.94
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [8]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
-<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Distance: </span><span class="si">{</span><span class="n">toy_traj</span><span class="o">.</span><span class="n">distance</span><span class="p">(</span><span class="n">line</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
-<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Hausdorff distance: </span><span class="si">{</span><span class="n">toy_traj</span><span class="o">.</span><span class="n">hausdorff_distance</span><span class="p">(</span><span class="n">line</span><span class="p">)</span><span class="si">}</span><span class="s1">'</span><span class="p">)</span>
+<div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Distance: </span><span class="si">{</span><span class="n">toy_traj</span><span class="o">.</span><span class="n">distance</span><span class="p">(</span><span class="n">line</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">"Hausdorff distance: </span><span class="si">{</span><span class="n">toy_traj</span><span class="o">.</span><span class="n">hausdorff_distance</span><span class="p">(</span><span class="n">line</span><span class="p">)</span><span class="si">}</span><span class="s2">"</span><span class="p">)</span>
 </pre></div>
 </div>
 </div>
@@ -8351,7 +8525,7 @@ Hausdorff distance: 6.0
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [ ]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [9]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s1">'Distance: </span><span class="si">{</span><span class="n">toy_traj</span><span class="o">.</span><span class="n">distance</span><span class="p">(</span><span class="n">line</span><span class="p">,</span><span class="w"> </span><span class="n">units</span><span class="o">=</span><span class="s2">"cm"</span><span class="p">)</span><span class="si">}</span><span class="s1"> cm'</span><span class="p">)</span>
